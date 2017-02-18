@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "# # For this exercise we assume to draw random points inside the square on the [-1,1] unit, \n# # and thus the value of Pi = 4(# random pts insid cirlce / # random pts in square)\n# sim.pi <- function(iterations = 1000) {\n#   # Generate two vectors for random points in unit circle\n#   x.pos <- runif(iterations, min=-1, max=1)\n#   y.pos <- runif(iterations, min=-1, max=1)\n#   # Test if draws are inside the unit circle\n#   draw.pos <- ifelse(x.pos^2 + y.pos^2 <= 1, TRUE, FALSE)\n#   draws.in <- length(which(draw.pos == TRUE))\n#   # Estimate Pi\n#   return(4*(draws.in/iterations))\n# }\n\nN <-20000\nR <- 1\nx <- runif(N, min= -R, max= R)\ny <- runif(N, min= -R, max= R)\nis.inside <- (x^2 + y^2) <= R^2\npi.estimate <- 4 * sum(is.inside) / N\npi.estimate\n\nplot.new()\nplot.window(xlim = 1.1 * R * c(-1, 1), ylim = 1.1 * R * c(-1, 1))\npoints(x[ is.inside], y[ is.inside], pch = '.', col = \"blue\")\npoints(x[!is.inside], y[!is.inside], pch = '.', col = \"red\")",
+    "created" : 1472343067856.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1764834204",
+    "id" : "2230F759",
+    "lastKnownWriteTime" : 1468082020,
+    "last_content_update" : 1468082020,
+    "path" : "~/R/MonteCarlo.R",
+    "project_path" : null,
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

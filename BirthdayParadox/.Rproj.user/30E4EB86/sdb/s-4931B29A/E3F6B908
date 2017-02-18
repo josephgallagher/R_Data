@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "#-----------\n# In studio we showed  studio1.r. This is extra code used to make the birthday plot we showed them\n#---------------------------\n\n#Need colMatches\nsource('colMatches.r')\n\n#Set real parameters\n# Look for 2 matching birthdays\nndays = 365\nnpeople = 20\nntrials = 10000\nsizematch = 2\n\n# Run ntrials together\nyear = 1:ndays\ny =  sample(year, npeople*ntrials, replace=TRUE)\ntrials = matrix(y, nrow=npeople, ncol=ntrials)\nw = colMatches(trials,sizematch)\nmean(w)\n\n#Repeat\n\n#---------------------------\n# Look for triples\nndays = 365\nnpeople = 100\nntrials = 10000\nsizematch = 3\n\n# Run ntrials together\nyear = 1:ndays\ny =  sample(year, npeople*ntrials, replace=TRUE)\ntrials = matrix(y, nrow=npeople, ncol=ntrials)\nw = colMatches(trials,sizematch)\nmean(w)\n\n#Repeat\n#---------------------------\n# Plot probability of match vs npeople\nndays = 365\nntrials = 200\nsizematch = 2\nmaxpeople = 100\n\n# Run ntrials together\npeople = 1:maxpeople;\np = rep(0, length(people))\nfor (npeople in people)\n{\n  year = 1:ndays\n  y =  sample(year, npeople*ntrials, replace=TRUE)\n  trials = matrix(y, nrow=npeople, ncol=ntrials)\n  w = colMatches(trials,sizematch)\n  p[npeople] = mean(w)\n}\nplot(people,p,type='l', col='blue', lwd=2)\n\n#Repeat\n",
+    "created" : 1472343046235.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4138032020",
+    "id" : "E3F6B908",
+    "lastKnownWriteTime" : 1472342925,
+    "last_content_update" : 1472342925,
+    "path" : "~/R/BirthdayParadox/Birthdayparadox.R",
+    "project_path" : "Birthdayparadox.R",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
